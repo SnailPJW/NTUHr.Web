@@ -1,0 +1,45 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "title";
+}
+<h2>Name List</h2>
+<ul>
+    @*
+        1.
+        @foreach (string strNames1 in ViewBag.Names)
+        {
+            <li>@strNames1</li>
+        }
+    *@
+   
+        2.
+        @foreach (string strNames2 in (List<string>)ViewData["Names"])
+        {
+            <li>@strNames2</li>
+        }
+    @*
+        3.
+        @foreach (string strNames1 in ViewBag.Names)
+        {
+            <li>@strNames1</li>
+        }
+        <br />
+        <br />
+        @foreach (string strNames2 in (List<string>)ViewData["Names"])
+        {
+            <li>@strNames2</li>
+        }
+    *@
+   
+    @*4.
+    @foreach (string strNames1 in ViewBag.Names)
+    {
+        <li>@strNames1</li>
+    }
+    <br/>
+    <br/>
+    @foreach (string strNames2 in (List<string>) ViewData["Names2"])
+    {
+        <li>@strNames2</li>
+    }*@
+</ul>

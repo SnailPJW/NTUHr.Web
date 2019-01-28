@@ -29,17 +29,41 @@ namespace NTUHr.Web.Controllers
             //取得標頭
             HtmlNodeCollection htnode = hdc.DocumentNode.SelectNodes("tr/th/font");
             //
-            HtmlNodeCollection HrValue = hdc.DocumentNode.SelectNodes("tr/td/font");
+            HtmlNodeCollection hrValue = hdc.DocumentNode.SelectNodes("tr/td/font/span");
             List<string> listHeader= new List<string>();
+            List<Hr> listContent = new List<Hr>();
             foreach (HtmlNode nodeHeader in htnode)
             {
                 listHeader.Add(nodeHeader.InnerHtml);
+            }
+            for(int i = 0; i < hrValue.Count; i+=12)
+            {
+                if(i+12> hrValue.Count)
+                {
+                    break;
+                }
+                Hr hrTemp = new Hr {
+                    PsnSelectNo = hrValue[i].InnerHtml,
+                    Unit = hrValue[i+1].InnerHtml,
+                    Title = hrValue[i+2].InnerHtml,
+                    PsnCnt = hrValue[i+3].InnerHtml,
+                    SelectBeginDate = hrValue[i+4].InnerHtml,
+                    SelectEndDate = hrValue[i+5].InnerHtml,
+                    SelectTypeName = hrValue[i+6].InnerHtml,
+                    RegisterDocUri = hrValue[i+7].InnerHtml,
+                    RegisterUri = hrValue[i+8].InnerHtml,
+                    Register1 = hrValue[i+9].InnerHtml,
+                    Register2 = hrValue[i+10].InnerHtml,
+                    Register3 = hrValue[i+11].InnerHtml,
+                };
+                listContent.Add(hrTemp);
             }
             //var HrHeader = new Hr()
             //{
             //    PsnSelectNo
             //};
             ViewBag.Headers = listHeader;
+            ViewBag.Contents = listContent;
             return View();
         }
     }

@@ -11,4 +11,21 @@
             <th>@headers</th>
         }
     </tr>
+    @foreach(NTUHr.Web.Models.Hr content in ViewBag.Contents)
+    {
+    <tr>
+        <td>@content.PsnSelectNo</td>
+        <td>@content.Unit</td>
+        <td>@content.Title</td>
+        <td>@content.PsnCnt</td>
+        <td>@content.SelectBeginDate</td>
+        <td>@content.SelectEndDate</td>
+        <td>@content.SelectTypeName</td>
+        <td>@content.RegisterDocUri</td>
+        <td>@content.RegisterUri</td>
+        <td>@content.Register1</td>
+        <td>@content.Register2</td>
+        <td>@content.Register3</td>
+    </tr>
+    }
 </table>

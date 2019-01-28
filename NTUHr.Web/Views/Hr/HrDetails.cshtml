@@ -1,1 +1,14 @@
-﻿
+﻿@model NTUHr.Web.Models.Hr
+@{
+    ViewBag.Title = "Hr Details";
+}
+
+<h2>Hr List</h2>
+<table style="width:100%">
+    <tr>
+        @foreach (string headers in ViewBag.Headers)
+        {
+            <th>@headers</th>
+        }
+    </tr>
+</table>

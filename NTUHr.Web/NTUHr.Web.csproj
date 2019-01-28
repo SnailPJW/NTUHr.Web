@@ -94,6 +94,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\GamerController.cs" />
+    <Compile Include="Controllers\HrController.cs" />
     <Compile Include="Models\Gamer.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -106,6 +107,7 @@
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Gamer\Details.cshtml" />
+    <Content Include="Views\Hr\HrDetails.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

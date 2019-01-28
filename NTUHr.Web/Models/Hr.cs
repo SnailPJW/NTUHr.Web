@@ -1,8 +1,6 @@
-﻿using System.Web.Mvc;
-
-namespace NTUHr.Web.Models
+﻿namespace NTUHr.Web.Models
 {
-    public class Hr : Controller
+    public class Hr
     {
         //甄選編號
         //用人單位

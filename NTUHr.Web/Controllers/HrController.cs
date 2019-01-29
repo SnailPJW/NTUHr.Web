@@ -25,7 +25,7 @@ namespace NTUHr.Web.Controllers
 
             //XPath 來解讀它 /html[1]/body[1]/center[1]/table[2]/tr[1]/td[1]/table[1] 
             hdc.LoadHtml(doc.DocumentNode.SelectSingleNode("//table[@id='gvwSel']").InnerHtml);
-
+            //徵選編號的Xpath //*[@id="gvwSel_ctl03_lblPsnSelectNo"]
             //取得標頭
             HtmlNodeCollection htnode = hdc.DocumentNode.SelectNodes("tr/th/font");
             //

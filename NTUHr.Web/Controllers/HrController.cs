@@ -26,18 +26,26 @@ namespace NTUHr.Web.Controllers
             using (IWebDriver driver = new ChromeDriver())
             {
                 driver.Navigate().GoToUrl("https://reg.ntuh.gov.tw/WebApplication/Administration/NtuhGeneralSelect/Entry.aspx");
-                //找到Post的Container
+                //1.擷取DOM
                 var containerElement = driver.FindElement(By.XPath(xpathContainerRoot));
-                //取得表格標頭
+                //取得表格標頭(只有第一次需要)
                 GetTableHeaders(driver, ref dataTable);
-                //取得分頁表元素
-                var paginationElement = GetPagination(containerElement);
-                //移動到下一頁
-                Move2NextPage(paginationElement, 2);
-                //重新擷取DOM
-                containerElement = driver.FindElement(By.XPath(xpathContainerRoot));
-                //取得表格內容
+                //2.取得分頁表元素
+                var paginationElement = GetPagination(containerElement);                
+                //3.取得表格內容
                 GetTableRows(containerElement, ref dataTable);
+
+                for(int indexPage = 2; indexPage <= 11; indexPage++)
+                {
+                    //移動到下一頁(第一次結束需要，若為最後一頁則否)
+                    Move2NextPage(paginationElement, indexPage);
+                    //重新擷取DOM
+                    containerElement = driver.FindElement(By.XPath(xpathContainerRoot));
+                    //取得分頁表元素
+                    paginationElement = GetPagination(containerElement);
+                    //取得表格內容
+                    GetTableRows(containerElement, ref dataTable);
+                }
             }
             return dataTable;
         }

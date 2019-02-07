@@ -79,7 +79,12 @@ namespace NTUHr.Web.Controllers
 
             foreach (var row in rootTable)
             {
-                dataTable.Rows.Add(row.FindElements(By.XPath("td")).Select(td => td.Text).ToArray());
+                var arrColumn = row.FindElements(By.XPath("td"))
+                    .Select(td => td.Text).ToArray();
+                if (arrColumn.Contains("資訊室"))
+                {
+                    dataTable.Rows.Add(arrColumn);
+                }
             }
         }
         //public ActionResult HrDetails()

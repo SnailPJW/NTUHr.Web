@@ -1,8 +1,4 @@
-﻿@model NTUHr.Web.Models.Hr
-@{
-    ViewBag.Title = "一般人事甄選";
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -11,14 +7,18 @@
 
 </head>
 <body>
+    @model NTUHr.Web.Models.Hr
+    @{
+        ViewBag.Title = "一般人事甄選";
+    }
     <div>
         <h2>台大醫院一般人事甄選網路報名</h2>
         <table style="width:100%">
             <tr>
                 @*@foreach (string headers in ViewBag.Headers)
-                {
-                    <th>@headers</th>
-                }*@
+                    {
+                        <th>@headers</th>
+                    }*@
                 @foreach (var header in ViewBag.DataTable.Columns)
                 {
                     <th>@header</th>
@@ -42,22 +42,22 @@
                 </tr>
             }
             @*@foreach(NTUHr.Web.Models.Hr content in ViewBag.Contents)
-            {
-            <tr>
-                <td>@content.PsnSelectNo</td>
-                <td>@content.Unit</td>
-                <td>@content.Title</td>
-                <td>@content.PsnCnt</td>
-                <td>@content.SelectBeginDate</td>
-                <td>@content.SelectEndDate</td>
-                <td>@content.SelectTypeName</td>
-                <td>@content.RegisterDocUri</td>
-                <td>@content.RegisterUri</td>
-                <td>@content.Register1</td>
-                <td>@content.Register2</td>
-                <td>@content.Register3</td>
-            </tr>
-            }*@
+                {
+                <tr>
+                    <td>@content.PsnSelectNo</td>
+                    <td>@content.Unit</td>
+                    <td>@content.Title</td>
+                    <td>@content.PsnCnt</td>
+                    <td>@content.SelectBeginDate</td>
+                    <td>@content.SelectEndDate</td>
+                    <td>@content.SelectTypeName</td>
+                    <td>@content.RegisterDocUri</td>
+                    <td>@content.RegisterUri</td>
+                    <td>@content.Register1</td>
+                    <td>@content.Register2</td>
+                    <td>@content.Register3</td>
+                </tr>
+                }*@
         </table>
     </div>
 </body>

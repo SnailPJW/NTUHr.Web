@@ -4,7 +4,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title></title>
-
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     @model NTUHr.Web.Models.Hr
@@ -13,34 +13,34 @@
     }
     <div>
         <h2>台大醫院一般人事甄選網路報名</h2>
-        <table style="width:100%">
-            <tr>
-                @*@foreach (string headers in ViewBag.Headers)
-                    {
-                        <th>@headers</th>
-                    }*@
-                @foreach (var header in ViewBag.DataTable.Columns)
-                {
-                    <th>@header</th>
-                }
-            </tr>
-            @foreach (var row in ViewBag.DataTable.Rows)
-            {
+        <table class="table table-hover">
+            <thead>
                 <tr>
-                    <td>@row[0]</td>
-                    <td>@row[1]</td>
-                    <td>@row[2]</td>
-                    <td>@row[3]</td>
-                    <td>@row[4]</td>
-                    <td>@row[5]</td>
-                    <td>@row[6]</td>
-                    <td>@row[7]</td>
-                    <td>@row[8]</td>
-                    <td>@row[9]</td>
-                    <td>@row[10]</td>
-                    <td>@row[11]</td>
+                    @foreach (var header in ViewBag.DataTable.Columns)
+                    {
+                        <th>@header</th>
+                    }
                 </tr>
-            }
+            </thead>
+            <tbody>
+                @foreach (var row in ViewBag.DataTable.Rows)
+                {
+                    <tr>
+                        <td>@row[0]</td>
+                        <td>@row[1]</td>
+                        <td>@row[2]</td>
+                        <td>@row[3]</td>
+                        <td>@row[4]</td>
+                        <td>@row[5]</td>
+                        <td>@row[6]</td>
+                        <td>@row[7]</td>
+                        <td>@row[8]</td>
+                        <td>@row[9]</td>
+                        <td>@row[10]</td>
+                        <td>@row[11]</td>
+                    </tr>
+                }
+            </tbody>            
             @*@foreach(NTUHr.Web.Models.Hr content in ViewBag.Contents)
                 {
                 <tr>
@@ -60,5 +60,7 @@
                 }*@
         </table>
     </div>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
 </body>
 </html>
